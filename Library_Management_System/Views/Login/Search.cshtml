@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Book>;
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<h1>Search</h1>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form method="post">
+
+            <input type="hidden" />
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input name="BookName" class="form-control" /><br />
+                <button asp-controller="Login" asp-for="" asp-action="Search" type="Submit" class="btn btn-primary">Submit</button>
+            </div>
+
+
+
+
+
+
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
